@@ -1,0 +1,103 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API generada desde JSON Schema",
+        "description": "Esquema OpenAPI para convertir JSON Schema a OpenAPI",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/example": {
+            "get": {
+                "summary": "Endpoint de ejemplo",
+                "responses": {
+                    "200": {
+                        "description": "Respuesta exitosa",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Nombre del usuario",
+                        "example": "John Doe",
+                        "type": "string"
+                    },
+                    "age": {
+                        "description": "Edad del usuario",
+                        "example": 30,
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "address": {
+                        "$ref": "Address"
+                    },
+                    "contact": {
+                        "$ref": "Contact"
+                    }
+                },
+                "required": [
+                    "name",
+                    "age"
+                ]
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "street": {
+                        "description": "Calle del usuario",
+                        "example": "123 Main St",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "Ciudad del usuario",
+                        "example": "Springfield",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "Estado del usuario",
+                        "example": "IL",
+                        "type": "string"
+                    },
+                    "zip": {
+                        "description": "Código postal del usuario",
+                        "example": "62701",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "street",
+                    "city",
+                    "state",
+                    "zip"
+                ]
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
+                    "phone": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "phone",
+                    "email"
+                ]
+            }
+        }
+    }
+}

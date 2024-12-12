@@ -1,0 +1,27 @@
+{
+    "$id": "User",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "age": {
+            "type": "number",
+            "minimum": 0
+        },
+        "birthDate": {
+            "type": "string",
+            "format": "date"
+        },
+        "address": {
+            "$ref": "Address"
+        },
+        "contact": {
+            "$ref": "Contact"
+        }
+    },
+    "required": [
+        "name",
+        "age"
+    ]
+}
